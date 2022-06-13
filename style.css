@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+}
+header {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background-color: #eee;
+}
+.cart-btn,
+.hamburger-menu {
+  cursor: pointer;
+  position: relative;
+}
+.qty-pdt-info {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: goldenrod;
+  right: -12px;
+  top: -12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.logo {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.logo span {
+  color: darksalmon;
+}
+.popup {
+  width: 400px;
+  padding: 7px;
+  color: white;
+  background-color: dodgerblue;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50px;
+  border-radius: 9px;
+  visibility: hidden;
+  pointer-events: none;
+  transition: 200ms;
+  z-index: 4;
+}
+.popup.open {
+  visibility: visible;
+}
+.banner {
+  min-height: 95vh;
+  background: url(./assets/img/banner.jpg) center / cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+}
+.abstract {
+  padding: 30px;
+  background: rgba(221, 221, 221, 0.7);
+  border-radius: 6px;
+  text-align: center;
+}
+.btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background-color: dodgerblue;
+  margin-top: 20px;
+}
+h1 {
+  margin: 20px;
+  text-align: center;
+}
+.products-grid {
+  max-width: 940px;
+  margin: 40px auto;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: center;
+}
+.product img {
+  width: 100%;
+}
+.name {
+  font-size: 1.2rem;
+  color: dodgerblue;
+  cursor: pointer;
+}
+.price::after,
+.cart-pdt-price::after {
+  content: ' F CFA';
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 0, 0, 0.4);
+  display: none;
+  z-index: 10;
+}
+.overlay.open {
+  display: block;
+}
+.cart-container {
+  position: absolute;
+  width: 400px;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #eee;
+}
+.btn-close-cart {
+  padding: 3px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+.cart-products {
+  width: 80%;
+  margin: 30px auto;
+  font-size: 0.9rem;
+}
+.cart-pdt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.cart-pdt-img {
+  width: 50px;
+}
+.total {
+  font-size: 1.7rem;
+}
+.total::after {
+  content: ' F CFA';
+}
+.btn-times {
+  cursor: pointer;
+}

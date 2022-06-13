@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vanilla js shopping cart</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- <link
+      rel="stylesheet"
+      href="./fontawesome/css/all.min.css"
+      type="text/css"
+    /> -->
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="popup">product added to cart</div>
+    <div class="overlay">
+      <div class="cart-container">
+        <h2>You cart</h2>
+        <button class="btn-close-cart"><i class="fas fa-times"></i></button>
+        <div class="cart-products"></div>
+        <h3>Total: <span class="total"></span></h3>
+      </div>
+    </div>
+    <header>
+      <div class="hamburger-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="logo">franky <span>house</span></div>
+      <div class="cart-btn">
+        <i class="fas fa-cart-plus"></i>
+        <div class="qty-pdt-info">4</div>
+      </div>
+    </header>
+    <section class="banner">
+      <div class="abstract">
+        <h2>check your recipe here</h2>
+        <button class="btn">shop now</button>
+      </div>
+    </section>
+    <main>
+      <h1>our products</h1>
+      <div class="products-grid"></div>
+    </main>
+    <script src="./products.js"></script>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
