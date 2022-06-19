@@ -18,16 +18,22 @@ function init(e) {
     const product = document.createElement('div');
     product.classList.add('product');
     product.id = `product-${item._id}`;
+    const imgBox = document.createElement('div');
+    imgBox.classList.add('img-box');
     const img = document.createElement('img');
     img.src = item.img;
+    const btnAddToCart = document.createElement('div');
+    btnAddToCart.className = 'btn-add-to-cart';
+    btnAddToCart.innerHTML = '<i class="fas fa-cart-plus"></i> add to cart';
+    btnAddToCart.addEventListener('click', putIncart);
+    imgBox.append(img, btnAddToCart);
     const name = document.createElement('p');
     name.className = 'name';
     name.textContent = item.name;
-    name.addEventListener('click', putIncart);
     const price = document.createElement('p');
     price.className = 'price';
     price.textContent = item.price;
-    product.append(img, name, price);
+    product.append(imgBox, name, price);
     df.appendChild(product);
   }
 
