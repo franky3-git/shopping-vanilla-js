@@ -6,6 +6,7 @@ const popup = document.querySelector('.popup');
 const totalContainer = document.querySelector('.total');
 const qtyPdtInfo = document.querySelector('.qty-pdt-info');
 const overlay = document.querySelector('.overlay');
+const btnClearCart = document.querySelector('.btn-clear-cart');
 
 document.addEventListener('DOMContentLoaded', init);
 
@@ -31,7 +32,7 @@ function init(e) {
   }
 
   document.querySelector('.products-grid').appendChild(df);
-  renderUI();
+  renderCartUI();
 }
 
 //put a product in the cart
@@ -61,7 +62,7 @@ function putIncart(e) {
     popup.classList.remove('open');
   }, 2000);
 
-  renderUI();
+  renderCartUI();
 }
 //open and close the overlay
 btnCart.addEventListener('click', () => {
@@ -127,16 +128,32 @@ function calcTotalNumberPdt() {
 cartContainer.addEventListener('click', removePdtInCart);
 function removePdtInCart(e) {
   if (e.target.classList.contains('btn-times')) {
-    const removePdtId = e.target.closest('.cart-pdt').getAttribute('data-pdt');
-    cart = cart.filter((pdt) => pdt._id != removePdtId);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    renderUI();
+    if (confirm('Are you sure you want to remove this product in the cart?')) {
+      const removePdtId = e.target
+        .closest('.cart-pdt')
+        .getAttribute('data-pdt');
+      cart = cart.filter((pdt) => pdt._id != removePdtId);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCartUI();
+    }
   }
 }
 
+//clear cart
+btnClearCart.addEventListener('click', (e) => {
+  if (confirm('You will remove all products from the cart')) {
+    cart = [];
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCartUI();
+  }
+});
+
 //call all the functions responsible for update the UI
-function renderUI() {
+function renderCartUI() {
   renderCart();
   totalContainer.textContent = calcTotal();
   qtyPdtInfo.textContent = calcTotalNumberPdt();
 }
+
+//deploy url
+//https://jolly-cocada-28c45e.netlify.app
