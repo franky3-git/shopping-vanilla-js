@@ -61,7 +61,7 @@ function putIncart(e) {
   } else {
     cart.push({ ...product, qty: 1 });
   }
-  localStorage.setItem('cart', JSON.stringify(cart));
+  setCart();
   //open the popup
   popup.classList.add('open');
   setTimeout(() => {
@@ -139,7 +139,7 @@ function removePdtInCart(e) {
         .closest('.cart-pdt')
         .getAttribute('data-pdt');
       cart = cart.filter((pdt) => pdt._id != removePdtId);
-      localStorage.setItem('cart', JSON.stringify(cart));
+      setCart();
       renderCartUI();
     }
   }
@@ -149,10 +149,15 @@ function removePdtInCart(e) {
 btnClearCart.addEventListener('click', (e) => {
   if (confirm('You will remove all products from the cart')) {
     cart = [];
-    localStorage.setItem('cart', JSON.stringify(cart));
+    setCart();
     renderCartUI();
   }
 });
+
+//keep in the local storage
+function setCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 //call all the functions responsible for update the UI
 function renderCartUI() {
